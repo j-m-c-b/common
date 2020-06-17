@@ -13,8 +13,8 @@
             color: white;
         }
 
-        input,
-        textarea {
+        input{
+            width: 200px;
             margin-left: 20px;
             margin-bottom: 20px;
             color: white;
@@ -53,11 +53,14 @@
         let btnConvertCopy = document.getElementById("btnConvertCopy");
 
         let domTxt = document.getElementById("domTxt");
+
         let date = new Date();
-        dateString = `${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`
+        dateString = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}` 
+
         let text = [
             "python3 -m http.server 8080",
             "`",
+            dateString
 
         ];
         let inputs = [];
