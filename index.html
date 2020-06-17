@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="favicon.png" type="image/png"> 
+    <title>Common</title>
+    <style>
+    body{
+        background-color: black;
+        color: white;
+    }
+    input, textarea{
+        width: 500px;
+        color: white;
+        background-color: rgb(71, 94, 129);
+    }
+
+    </style>
+</head>
+<body>
+    <h2>List</h2>
+    <div id="list"></div>
+    <br>
+    <div id="notice"></div>
+
+
+
+   <script>
+       
+        let btnConvert = document.getElementById("btnConvert");
+        let btnConvertCopy = document.getElementById("btnConvertCopy");
+
+        let domTxt = document.getElementById("domTxt");
+        let date = new Date();
+        dateString = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}` 
+        let text = [
+            "python3 -m http.server 8080",
+            "`",
+        
+        ];
+        let inputs = [];
+
+        let list = document.getElementById("list");
+        let notice = document.getElementById("notice");
+
+        let timesCopied = 0;
+   
+
+        for(let i in text){
+            let input = document.createElement("input");
+            let button = document.createElement("button");
+            
+            inputs.push(input);
+
+            button.value = text[i];
+            input.value = text[i];
+
+
+            button.innerText = "Copy";
+
+
+            button.addEventListener("click", (e)=>{
+                
+                inputs[i].select();
+                document.execCommand("Copy");
+
+                timesCopied++;
+                notice.innerText = "Copied " + timesCopied;
+            });
+            list.appendChild(input);
+            list.appendChild(button);
+        }
+
+
+
+       
+
+    </script>
+    
+</body>
+</html>
